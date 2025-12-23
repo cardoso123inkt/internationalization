@@ -40,7 +40,7 @@ class PhoneNumberFormatService implements LoggerAwareInterface
             try {
                 $parsedNumber = $this->phoneNumberUtil->parse($phoneNumber, $countryCode);
             } catch (NumberParseException $exception) {
-                $this->logger?->info($exception->getMessage(), ['exception' => $exception, 'phoneNumber' => $phoneNumber]);
+                $this->logger?->notice($exception->getMessage(), ['exception' => $exception, 'phoneNumber' => $phoneNumber]);
 
                 return $phoneNumber;
             }
